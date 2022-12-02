@@ -13,6 +13,7 @@ curl -s "https://adventofcode.com/2022/day/${day}/input" --cookie "session=${AOC
 
 # add readme
 touch README.md
+touch __init__.py
 
 echo -n "def pt1(input: str) -> str:
     return input
