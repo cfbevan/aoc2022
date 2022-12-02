@@ -4,3 +4,4 @@
 
 - I am using python3.11
 - run each using `python -m day01.main`
+- test using `python -m day01.test`
