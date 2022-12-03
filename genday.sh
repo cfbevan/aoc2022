@@ -42,12 +42,12 @@ class Test${project}(TestCase):
 
     def test_pt1(self):
         output = pt1(input)
-        expected = ''
+        expected = input
         self.assertEqual(output, expected)
 
     def test_pt2(self):
         output = pt2(input)
-        expected = ''
+        expected = input
         self.assertEqual(output, expected)
         
 if __name__ == '__main__':
