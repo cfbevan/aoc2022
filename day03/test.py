@@ -20,14 +20,12 @@ input = "\n".join(
 
 class Testday03(TestCase):
     def test_find_doubled_item(self):
-        self.assertEqual(find_doubled_item("vJrwpWtwJgWrhcsFMMfFFhFp"), ("p", 16))
-        self.assertEqual(
-            find_doubled_item("jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL"), ("L", 38)
-        )
-        self.assertEqual(find_doubled_item("PmmdzqPrVvPwwTWBwg"), ("P", 42))
-        self.assertEqual(find_doubled_item("wMqvLMZHhHMvwLHjbvcjnnSBnvTQFn"), ("v", 22))
-        self.assertEqual(find_doubled_item("ttgJtRGJQctTZtZT"), ("t", 20))
-        self.assertEqual(find_doubled_item("CrZsJsPPZsGzwwsLwLmpwMDw"), ("s", 19))
+        self.assertEqual(find_doubled_item("vJrwpWtwJgWrhcsFMMfFFhFp"), 16)
+        self.assertEqual(find_doubled_item("jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL"), 38)
+        self.assertEqual(find_doubled_item("PmmdzqPrVvPwwTWBwg"), 42)
+        self.assertEqual(find_doubled_item("wMqvLMZHhHMvwLHjbvcjnnSBnvTQFn"), 22)
+        self.assertEqual(find_doubled_item("ttgJtRGJQctTZtZT"), 20)
+        self.assertEqual(find_doubled_item("CrZsJsPPZsGzwwsLwLmpwMDw"), 19)
 
     def test_find_group(self):
         self.assertEqual(
@@ -36,7 +34,7 @@ class Testday03(TestCase):
                 "jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL",
                 "PmmdzqPrVvPwwTWBwg",
             ),
-            ("r", 18),
+            18,
         )
         self.assertEqual(
             find_group(
@@ -44,7 +42,7 @@ class Testday03(TestCase):
                 "ttgJtRGJQctTZtZT",
                 "CrZsJsPPZsGzwwsLwLmpwMDw",
             ),
-            ("Z", 52),
+            52,
         )
 
     def test_pt1(self):
