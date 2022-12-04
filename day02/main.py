@@ -36,39 +36,50 @@ decode_them: dict[Literal["A", "B", "C"], RPS] = {
     "C": RPS.SCISSORS,
 }
 
+rps_outcomes = {
+    RPS.ROCK: {
+        RPS.ROCK: Outcome.TIE,
+        RPS.PAPER: Outcome.LOSE,
+        RPS.SCISSORS: Outcome.WIN,
+    },
+    RPS.PAPER: {
+        RPS.ROCK: Outcome.WIN,
+        RPS.PAPER: Outcome.TIE,
+        RPS.SCISSORS: Outcome.LOSE,
+    },
+    RPS.SCISSORS: {
+        RPS.ROCK: Outcome.LOSE,
+        RPS.PAPER: Outcome.WIN,
+        RPS.SCISSORS: Outcome.TIE,
+    },
+}
+
 
 def calc_round_outcome(you: RPS, them: RPS) -> Outcome:
-    if you == them:
-        return Outcome.TIE
-    elif you == RPS.ROCK:
-        if them == RPS.PAPER:
-            return Outcome.LOSE
-        return Outcome.WIN
-    elif you == RPS.PAPER:
-        if them == RPS.SCISSORS:
-            return Outcome.LOSE
-        return Outcome.WIN
-    elif you == RPS.SCISSORS:
-        if them == RPS.ROCK:
-            return Outcome.LOSE
-        return Outcome.WIN
+    return rps_outcomes[you][them]
+
+
+rps_move = {
+    RPS.ROCK: {
+        Outcome.TIE: RPS.ROCK,
+        Outcome.WIN: RPS.PAPER,
+        Outcome.LOSE: RPS.SCISSORS,
+    },
+    RPS.PAPER: {
+        Outcome.TIE: RPS.PAPER,
+        Outcome.WIN: RPS.SCISSORS,
+        Outcome.LOSE: RPS.ROCK,
+    },
+    RPS.SCISSORS: {
+        Outcome.TIE: RPS.SCISSORS,
+        Outcome.WIN: RPS.ROCK,
+        Outcome.LOSE: RPS.PAPER,
+    },
+}
 
 
 def calc_your_move(them: RPS, outcome: Outcome) -> RPS:
-    if outcome == Outcome.TIE:
-        return them
-    elif outcome == Outcome.LOSE:
-        if them == RPS.ROCK:
-            return RPS.SCISSORS
-        elif them == RPS.PAPER:
-            return RPS.ROCK
-        return RPS.PAPER
-    elif outcome == Outcome.WIN:
-        if them == RPS.ROCK:
-            return RPS.PAPER
-        elif them == RPS.PAPER:
-            return RPS.SCISSORS
-        return RPS.ROCK
+    return rps_move[them][outcome]
 
 
 def calc_round_score(you: RPS, outcome: Outcome) -> int:
