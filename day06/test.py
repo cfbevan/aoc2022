@@ -6,16 +6,16 @@ from .main import pt1
 from .main import pt2
 
 input = [
-    'mjqjpqmgbljsphdztnvjfqwrcgsmlb',
-    'bvwbjplbgvbhsrlpgdmjqwftvncz',
-    'nppdvjthqldpwncqszvftbrmjlhg',
-    'nznrnfrfntjfmvfwmzdfjlvtqnbhcprsg',
-    'zcfzfwzzqfrljwzlrfnpqdbhtmscgvjw',
-    'aaaaabcd'
+    "mjqjpqmgbljsphdztnvjfqwrcgsmlb",
+    "bvwbjplbgvbhsrlpgdmjqwftvncz",
+    "nppdvjthqldpwncqszvftbrmjlhg",
+    "nznrnfrfntjfmvfwmzdfjlvtqnbhcprsg",
+    "zcfzfwzzqfrljwzlrfnpqdbhtmscgvjw",
+    "aaaaabcd",
 ]
 
-class Testday06(TestCase):
 
+class Testday06(TestCase):
     def test_find_packet(self):
         cd = ComDevice()
         cd.stream = input[0]
@@ -44,6 +44,7 @@ class Testday06(TestCase):
         self.assertEqual(cd.find_start_of_packet(), 29)
         cd.stream = input[4]
         self.assertEqual(cd.find_start_of_packet(), 26)
-        
-if __name__ == '__main__':
+
+
+if __name__ == "__main__":
     main()
