@@ -17,7 +17,7 @@ class CRT:
 
     def draw_pixel(self) -> None:
         y = (self.cycle - 1) % self.width
-        if self.x - 1 <= y  <= self.x + 1:
+        if self.x - 1 <= y <= self.x + 1:
             self.row += self.lit
         else:
             self.row += self.dark
