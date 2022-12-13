@@ -14,6 +14,7 @@ curl -s "https://adventofcode.com/2022/day/${day}/input" --cookie "session=${AOC
 # add readme
 touch README.md
 touch __init__.py
+touch test_input.txt
 
 echo -n "def pt1(input: str) -> str:
     return input
@@ -34,9 +35,9 @@ from unittest import main
 from .main import pt1
 from .main import pt2
 
-input = '\n'.join([
-    '',
-])
+input = ''
+with open('${project}/test_input.txt', 'r') as fin:
+    input = fin.read().strip()
 
 class Test${project}(TestCase):
 
